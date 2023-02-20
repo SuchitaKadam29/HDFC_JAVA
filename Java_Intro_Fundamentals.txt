@@ -1,0 +1,116 @@
+Programming Fundamentals:
+-------------------------
+1. Keywords and Identifiers
+2. Data types
+3. Variables
+4. Methods
+
+
+
+
+Identifiers:
+------------
+Any Name in Java program can be consider as identifier.
+package name , variable name , class name , method name , parameter name.
+
+keywords:
+---------
+Keywords are the reserve/predefined words in programming languages.
+It will written always in lower case.
+
+public , private , static , class , void , int , float , double , boolean , 
+if , else , while , for , switch , try , catch , final 
+
+In Java 50+ keywords
+
+
+variables: (camel-case)
+----------
+Variable is a name given to the memory block or
+It is used to store values of any data type.
+
+Variables can be created by using 
+1. Primitive data types
+
+byte , short , char , int , long , float , double , boolean
+
+EX: int x ;  double d;  boolean isValid;
+
+2. Reference data types (non-primitive datatypes)
+
+Class / Interface types are known as Reference data types.
+
+String , Student , Object , Demo 
+
+Ex:  Demo d1;        Student s1;  String name;
+
+
+Methods: (camel-case)
+-----------------------
+
+1. concrete methods
+A method which is non-static and can be invoked/called by using Object Reference
+
+Demo d1 = new Demo();
+
+	d1.methodOne();
+
+
+2. static methods
+A method which use static keyword and can be invoked by using class name
+ or also by using obj reference
+
+ Ex:  class Student --> getMarks();
+
+i. Student.getMarks(); // static method call using Class/Type Name 
+ii. Student s1 = new Student();
+	s1.getMarks();// static method call using obj ref
+
+Variables are of 3 types (based on visibility)
+1. Local variables
+
+It is a varibale declare inside a block (function,if , switch , loops , try , catch ...)
+or any parameter is known as local variable.
+It can be accessible only with in a given block.
+
+2. Instance variables / Object level variables
+Variables declare inside class without static keyword is known as instance variable or object variables.
+It can be access only by using object ref.
+
+Accessibility depends on access modifier.
+
+3. static variables/ Class level variables
+Variables declare inside class with static keyword known as static variables.
+Accessibility depends on access modifier.
+It can be access using classname or object ref.
+
+
+byte:(size 1-byte)
+
+-2 power7    to  (2power 7) -1
+
+ -128  to 127
+
+short:(size 2-bytes)
+
+-2 power15  to (2power15) -1 
+
+char: size 2-byte
+
+int : size 4-bytes
+
+long: size 8-bytes
+
+float : size 4-bytes
+
+double: size 8- bytes
+
+boolean - no size (true/false)
+
+
+
+
+
+
+
+ 

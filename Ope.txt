@@ -1,0 +1,60 @@
+packages:
+
+lower case
+
+syn: 
+
+domainname.company.project.module.submodule;
+
+ex: com.hdfc.bankapp.login.user
+
+Primitive Data types:
+------------------------
+Names      Size(bytes)        Wrapper Classes    default value
+-----    ----------------     ---------------    --------------
+byte         1 byte           Byte                  0  
+short        2 bytes	      Short                 0 
+char	     2 bytes	      Character		    single space  \u
+int	     4 bytes	      Integer		    0	
+long	     8 bytes	      Long		    0
+float	     4 bytes	      Float		    0.0f
+double       8 bytes          Double 		    0.0
+
+boolean       1-bit           Boolean               false
+
+
+
+
+
+
+
+
+
+
+Any number is integer by default
+
+1234
+890
+-99
+875890743
+
+Any decimal value is double by default
+4.55
+0.998763
+1.231
+
+
+
+
+Increment/Decrement
+
+pre  assign post
+
+
+
+
+
+
+
+
+

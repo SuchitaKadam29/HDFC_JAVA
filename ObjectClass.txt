@@ -1,0 +1,28 @@
+
+
+java.lang;
+
+public class Object {
+
+
+
+	public Object(){
+		
+	// create instance in heap memory
+	//  create copy of instance variable
+	// initializing default value for vars
+	// generating hashcode();
+
+
+	}
+
+	hashCode();
+	toString();
+	finalize();
+	equals();
+
+
+
+
+
+}

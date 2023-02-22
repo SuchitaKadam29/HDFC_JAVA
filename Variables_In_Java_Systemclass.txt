@@ -1,0 +1,84 @@
+Types of Variables in Java:
+===========================
+1.Local Variable
+->The variables declare inside the blocks or use as parameters known local variables or
+ thread level variable.
+->Local variable values should be initialize by user/developer JVM will not initialize default values
+->Local variables expire when thread of a method is expired/killed
+Ex:  int add(int a , int b){  // a,b local
+		int x; // local	
+	if(true){
+		String name; // local to if block
+	}
+	}
+2. Instance variables 
+-> The variables declare inside the class , without static keyword known as  instance variable.
+-> The JVM can initialize default values to the instance variables.
+-> The memory allocation to the instance variables is inside heap memory block.
+-> Instance variables also known as Object Level Variables.
+3. Static Variables
+ ->  Same as instance variables  are declare inside the class with static keyword.
+-> The JVM can initialize default values to the static variables.
+-> The memory allocation to the static variables will be in method area while loading class
+Note: In Java static members will get memory allocation first.
+-> Static vars can be access using objects or class name;
+-> For every object in java same copy of static var will be shared.
+->static var also known as class level vars.
+
+
+
+
+
+
+
+
+Reading / Writing data
+java.io.*;
+
+InputStream class object to read data from keyboard
+PrintStream class object to print data on monitor
+
+class PrintStream{
+
+	print(){..}
+	println(){..}
+
+}
+
+
+// utility
+
+class System {
+
+ public static InputStream in = new InputStream();
+
+ public static PrintStream out = new PrintStream();
+
+public static PrintStream err= new PrintStream();
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

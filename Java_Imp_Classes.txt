@@ -1,0 +1,166 @@
+
+Important Class Library:
+-------------------------
+java.lang.*;
+
+1. Wrapper classes
+Byte , Short , Character ,Integer, Long , Float , Double , Boolean 
+
+parseXXX();
+Integer.parseInt();
+Double.parseDouble();
+
+
+Non-string values into String
+toString();
+
+packages:
+---------
+packages are created to maintained project structure , it will help us to keep related interfaces and classes into particular package. Where searching  files or classes will be easy.
+
+packages should be written in lower case.
+
+syn: domain.company.project.module.submodule;
+
+-> we can import packages in 3 ways.
+
+1. java.lang.*; // universal import
+2. java.lang.String; // specific import
+3. Inline import (java.lang.String str = "javeed";)
+4. static import
+
+
+------------------------------------
+java.lang.*;
+java.util.*;
+java.io.*;
+java.sql.*;
+java.time.*;
+
+
+===============================
+
+
+java.lang.Object class: The super most class in Java
+
+class Object{
+
+
+	public Object(){
+		// lots of logics
+	}
+
+	int hashcode(){
+		return code;
+	}
+
+	String toString(){
+	
+	return  "pkg.classname@"+hashcode();
+
+	}
+
+	boolean equals(){
+
+		// compares two object reference/hashcodes
+	}
+
+	finalize(){...}
+	wait(){...}
+	notify(){...}
+	notifyAll(){...}
+
+
+
+
+
+}
+
+================================================================
+
+java.lang.String class:
+
+class String{
+
+	boolean equals(){
+
+	// compare data or content
+
+	}
+
+
+
+}
+
+
+
+string means sequence of characters written with in double quotes
+ex: "javeed" , "java1223" , "tiger@$*&123"
+
+String objects can be created in 2 diff ways:
+
+1. String str = new String("java");
+
+2. String str2 = "hello";
+
+
+compare() method in string class
+
+public int compare(String s1,String s2){
+
+	return integer; // +ve or -ve or zero
+
+}
+
+Ex:
+String s1 = new String("A"); // 65
+String s2 = new String("B");  // 66
+				
+System.out.println(s1.compareTo(s2)); 
+
+1. -ve already sorted order
+												
+2. +ve need to sort elements
+													3.  zero both are same
+
+
+==============================================================
+
+java.time.*; package  (from java8 version)
+
+LocalDate mydate = LocalDate.now();
+		
+		System.out.println(mydate);
+		
+		System.out.println(mydate.plusYears(30));
+		
+		
+		System.out.println("year "+mydate.getYear());
+		
+		System.out.println("week day "+mydate.getDayOfWeek());
+		
+		System.out.println("month "+mydate.getMonth());
+		
+		System.out.println(mydate.getMonthValue());
+		
+		
+		LocalDateTime  dt = LocalDateTime.now();
+		
+		
+		System.out.println(dt.getHour());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

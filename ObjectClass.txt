@@ -16,8 +16,12 @@ public class Object {
 
 	}
 
-	hashCode();
-	toString();
+	hashCode(){ // generating hashcode;}
+
+	String toString(){
+
+		return pkg.getClass()+"@hashcode()";  // student.Student@43534abe
+	}
 	finalize();
 	equals();
 

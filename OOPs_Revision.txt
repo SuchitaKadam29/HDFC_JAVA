@@ -1,0 +1,42 @@
+
+Abstraction: 
+Highlighting set of services to the user and hiding implementation code.
+Abstraction = Encapsulation + Data Hiding
+
+Data Hiding: It is a concept where direct data access will be restricted to the users by declaring 
+properties as private. And giving access to the outsiders through setters/getter , para-constructors.
+
+Encapsulation: Wrapping data and data members in single unit known as Encapsulation.
+Ex: class , method , object
+
+
+Abstraction can be implemented in Java using Interfaces and Abstract classes.
+
+Interface: 
+It is a type which represent declartion set of services which can be implemented by developers and used by end-users/customers.
+
+
+Interface for Developer: It is a specification or requirement given to developers which we need to implement.
+
+Interface for End-User: It is set of services highlighted to user. 
+Services provided by the service provider.
+
+Interface will have only abstract methods means method without body only declaration.
+Ex: public interface MyInterface{
+		
+		public static final  int VAR = 101;
+	
+		public abstract int add(int a, int b);
+
+
+	}
+
+
+abstract class:
+A class declare with abstract keyword will allow us to provide partial implementation for given interface.
+For abstract classes we cannot create objects. But they can be inherited.
+
+
+
+
+ 

@@ -1,0 +1,103 @@
+Exception:
+----------
+Any unexpected output or error at runtime due to logical mistakes known as Exception / Runtime error.
+Exception occur only at runtime.
+When exception occur termination of program is mandatory.
+i.If we dont handle exception then abnormal termination take place.
+ii. If we handle exception using(try-catch) then normal termination take place.
+
+-> When exception is not handle it get throws from callee to the caller always.
+
+Keywords in Exception Handling:
+================================
+
+1. throws
+2. try-catch
+3. finally
+4. throw
+
+
+
+
+In Java the super most exception class is Throwable ---> Exception 
+
+1. Checked Exceptions / Compile Time Exceptions
+2. UnChecked Exceptions / Runtime Exceptions
+
+
+
+UnChecked Exceptions:
+----------------------
+These are the exceptions which cannot be detect by compiler , when ever they raise will get to know.
+Ex: ArithmeticException , ArrayIndexOutOfBoundException , NullPointerException ........
+
+Ex: Earthquake , Bomb blast , Tsunami ....
+
+Note: Any Exception which is RuntimeException class type or its childrens type known as Unchecked/Runtime Exp in Java
+
+am on mute wait
+
+
+Checked Exception:
+-------------------
+These are the exception which can be detect or predict by compiler at CompileTime known as CompileTimeExp or Checked Exceptions.
+Ex: IOException , FileNotFoundException , InterruptedException , SQLException  .....
+
+Ex: Having 2 pens in exam , HallTicketMissing , Rain, Helmet 
+
+
+
+
+
+
+syntax:
+
+try{
+
+}
+catch(ArithmeticExp ae){
+
+}
+catch(NullPointerExp ne){
+
+}
+catch(Exception e){
+
+try-catch();
+
+}
+finally{
+
+
+
+}
+===========================
+
+try{
+
+	try-catch();
+
+
+}
+finally{
+
+	try{
+	}
+	catch(){
+
+	}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

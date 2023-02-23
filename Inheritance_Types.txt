@@ -1,0 +1,44 @@
+Inheritance:
+------------
+
+class A extends Object {
+
+// all methods of A
+}
+
+
+class B extends A {
+
+// all methods of A and B
+
+}
+---------------------------------------
+
+interface I1 {
+
+
+}
+
+
+interface I2 extends I1 {
+
+
+}
+
+interface I3 extends  I2{       //          I1 , I2 , I4 , I5{  // MULTIPLE INHERITANCE
+
+
+
+}
+
+
+--------------------------------------------
+
+
+class A  implements I1 , I2{
+
+
+
+}
+
+

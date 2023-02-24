@@ -1,0 +1,164 @@
+
+
+Thread:
+
+Any piece of code which is responsible to execute our logics/programs known as thread.
+
+Threads are created by JVM , it can be pre-define(main-thread) or user-defined.
+
+Threads will have life cycle.
+
+Threads can throw InterruptedException.
+
+
+
+By using threads in Java we can implement multi-tasking java apps , known as multi-threading apps.
+
+Threads can be created in 2 ways:
+1. extends java.lang.Thread class
+2. implements Runnable interface
+
+public interface Runnable {
+
+	public abstract void run();
+
+
+}
+
+public class Thread  implements Runnable{
+
+  final int MIN_PRIORITY =1;
+  final int MAX_PRIORITY =10;
+  final int NORM_PRIORITY = 5;
+
+
+
+	public void run(){
+		//no logic
+	}
+
+	// setters and getters methods
+
+	sleep(){ }
+	join(){ }
+	yield(){ }
+
+
+  String	toString(){
+		
+	return thread-info;
+
+	}
+
+
+	public void start(){
+
+		// setting thread name and priority
+		// getting resources from cpu
+		// getting executing time from Thread Scheduler
+		// all thread related logics
+
+		//invoking run();
+
+
+	}
+
+
+
+
+}
+
+
+Every Thread can have default priority as 5;
+
+Thread Priority Range is 1 TO 10.
+ 
+
+
+
+
+public interface  MyInterface{ // marker interface
+
+// empty interfaces known as marker interface
+
+}
+
+
+Thread Interrupted by using
+	sleep(){ }
+	join(){ }
+	yield(){ }
+
+sleep(milisecs): It is use to pause thread for specific time.
+yield(): It helps active thread to pause itself and give chance to another thread with same priority.
+join(): It helps one thread (t2) to join another thread (t1) after execution of t1 thread
+
+
+Assignment:
+
+class  User implements Runnable{
+
+
+run(){
+
+// current thread name
+}
+
+}
+
+class Customer extends User {
+private cid,cname;
+	
+//setter , getters
+
+
+}
+
+class Admin extends User {
+private aid,adminName;
+
+//setter , getters
+
+
+}
+
+Main{
+
+
+	main(){
+
+		switch(){
+
+		case1. customer
+			Customer c = new Customer();
+
+			Thread t = new Thread(c);
+
+					c.setCname("javeed");
+
+			t.setName(c.getCName());
+
+			t.start();
+		
+		case 2. admin	
+
+		}
+
+
+	}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

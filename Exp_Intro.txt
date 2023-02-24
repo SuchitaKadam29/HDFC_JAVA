@@ -46,10 +46,6 @@ Ex: IOException , FileNotFoundException , InterruptedException , SQLException  .
 Ex: Having 2 pens in exam , HallTicketMissing , Rain, Helmet 
 
 
-
-
-
-
 syntax:
 
 try{
@@ -89,6 +85,47 @@ finally{
 
 
 }
+
+-------------------------------------------------------------------
+Custom Exception / User defined Exception:
+==========================================
+Exception which are created by Developers it can be checked or unchecked.
+
+1. Create Exception class
+2. Raise/Throw Exception
+3. Handle Exp using try-catch 
+
+
+
+
+class  UserException  extends Exception{
+
+
+	main(){
+
+
+		try{
+		throw	new UserException(); // raising exp explicitly.
+		}
+		catch(UserException ue){
+
+
+		}
+
+	}
+
+
+}
+
+
+Assignment:
+-----------
+Create seperate User defined exception  BalanceIsLowException.
+In Main class create 2 arrays 
+i. int accounts[]  
+ii. double balance[]
+display all accounts and balances in for-loop
+write if condition to check , blance[i] < 1000 , if true throw BalanceIsLowExp and handle
 
 
 

@@ -1,0 +1,200 @@
+
+Data structures:
+=================
+1. Arrays
+2. List 
+3. Set
+4. Tree
+5. Map
+
+
+
+int sid1 = 101;
+int sid2 = 102;
+int sid3 = 103;
+int sid4 = 104
+ ::
+ ::
+int sid50 = 150;
+
+read size;  // 100
+
+int  studentNumbers[size];
+
+studentNumbers[0]
+
+studentNumbers[2]
+
+ 
+String  names[4];
+
+names[0] = "King";
+
+names[1] = "Tom";
+names[2] = "Ford";
+
+====================
+
+List
+-----
+List Data structure we can insert duplicate values/elements.
+Insertion order is preserved for list family.
+Ex: ArrayList , LinkedList 
+
+ArrayList alist = new ArrayList(10); // singly linked list
+
+	alist.add(101);
+	alist.add(107);
+	alist.add(103);
+	alist.add(101);
+
+ print(alist); // output : 101   107  103  101
+Usage: ArrayList Good for fetching data faster.
+
+LinkedList dlist = new LinkedList(11); // doubly linked list
+Usage:  LinkedList is good for insertion and deletion of elements.
+
+Set:
+===
+Set Data structures we can't enter duplicate elements. 
+Elements will be inserted in different order (insertion order is not preserved)
+
+Ex: HashSet , LinkedHashSet , TreeSet
+
+HashSet hashset = new HashSet();
+Insertion will be based on hash code of memory blocks
+
+	hashset.add(101); 1  // here 1 is hashcode
+	hashset.add(105);  4
+	hashset.add(103); 3
+	hashset.add(102);  2
+	hashset.add(104);  5
+
+	hashset.add(104); // duplicate value will be rejected
+
+  PRINT hashset //  101 , 102, 103 , 105, 104
+
+
+LinkedHashSet = LinkedList + HashSet 
+
+	
+LinkedHashSet   linkHS = ne LinkedHashSet();
+It preserved the insertion order this feature  taken from LinkedList.
+
+		linkHS.add(103);
+		linkHS.add(104);
+		linkHS.add(5.44);
+		linkHS.add(105);
+		linkHS.add("javeed");
+
+		linkHS.add(103); // duplicate not allowed (HashSet)
+
+
+   PRINT :   103, 104 , 5.44 , 105 , javeed
+
+
+
+TreeSet:  This DS  allows only homogenous elements , and do sorting of elements in nature order.
+
+TreeSet  treeSet = new TreeSet();
+
+	
+	treeSet.add(104);
+	treeSet.add(105);
+	treeSet.add(109);
+	treeSet.add(101);
+	treeSet.add(107);
+
+	treeSet.add("ABC"); // heterogenous not allowed
+	treeSet.add(104); // duplicate not allowed
+
+PRINT:  101 , 104 , 105 ,107 , 109
+	
+
+================================================
+
+Map: This datastructure is store data in (key,value) pairs , where keys column follows set datastructure rules and values column follows list data structure rules
+
+Ex:HashMap , LinkedHashMap , TreeMap
+
+
+HashMap = HashSet(keys) + List (values)
+
+
+Insertion order is based on  hash codes of key column not key-data
+HashMap<Integer,String>   map = new HashMap<Integer,String>();
+
+	map.put(103,"Javeed");
+	map.put(102,"Sahil");
+	map.put(101,"Prasad");
+	map.put(104,"Neha");
+	
+	map.put(104,"Neha"); // key cannot be duplicate
+	map.put(106,"Sahil");// value can be duplicate
+
+PRINT: {101-Prasad} , {102-Sahil} , {103-Javeed} , {104-Neha}
+
+
+
+------------------
+
+LinkedHashMap =  LinkedHashSet +  List
+
+LinkedHashMap<Integer,String>   map = new LinkedHashMap<Integer,String>();
+
+	map.put(103,"Javeed");
+	map.put(102,"Sahil");
+	map.put(101,"Prasad");
+	map.put(104,"Neha");
+
+	map.put(104,"Aswini"); // key cannot be duplicate , so it will replace the Neha with Aswini
+	map.put(106,"Sahil");// value can be duplicate
+
+ PRINT:  {103-Javeed} , {102 - Sahil} , {101-Prasad} , {104 - Aswini} , {106-Sahil}
+
+-----------------------------------------
+
+TreeMap: It does not allow duplicate keys, and keys should be homogenous and values can be duplicate.
+
+
+TreeMap = TreeSet + List
+
+
+	TreeMap map = new TreeMap();
+
+	map.put(103,"tom");
+	map.put(101,"smith");
+	map.put(102,"ford");
+
+
+	map.put(102,"javeed"); // it will replace ford with javeed
+	map.put("AAA","ford"); // key cannot be heterogenous
+
+	PRINT:  101-smith , 102-javeed , 103- tom
+
+
+
+Queue:
+========
+Queue is defined as a linear data structure.
+Queue is open at both the ends and operations are performed based on FIFO (First In First Out) order.
+In Queue data will be insert/write from rear-end/tail and read/exit from frontend/head
+But in some cases data can be retrieve from rear end also because queues are open from both the ends.
+
+Head                 Tail
+  1 2 3 4 5 6 .. 99 100
+
+
+Stack:
+========
+This datastructure is sued when ever we want to arrange data in LIFO rule.
+
+Ex: Stack in Programming Lang , Plates , CD-stand ... 
+
+
+
+
+
+
+
+

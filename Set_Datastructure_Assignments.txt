@@ -1,0 +1,18 @@
+1.Assignment:
+
+i.Create an Entity Class(any class) Flight
+write properties  fid,fname,price
+setters & getters
+para-constructors
+
+ii. Create seperate Main class
+	Create HashSet and enter above entity objects
+	 override hashcode() , equals(); to make fid or fname or price as hashcode
+	Override toString() to print hashcode.
+	
+
+2. Create TreeSet Demo for above entity
+     and create MyCompartor to implement Comparator interface with compare();
+	do sorting for fligtNames in asc and desc order.
+	do sorting for  price in asc or desc order.
+

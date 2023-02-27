@@ -1,0 +1,60 @@
+Stream:
+Flow  of data is stream.
+
+Data flows from one source to another source(array,collections).
+In Stream API set of methods used to perform specific task are known  services/operations.
+
+Early Initialization/Loading:
+
+class Address{
+	String city;
+}
+
+class Employee {
+
+	int eid;	
+	String ename;
+	Address addr;
+
+
+}
+
+Employee e1 = new Employee(); //Address addr= new Address();
+
+
+Lazy Initialization/Loading:
+----------------------------
+
+Employee e2 = new Employee(); // Address addr = null;
+
+	e2.getAddr(); // new Address();
+
+Optional Type:
+--------------
+
+int display(String str){
+
+	return str.length(); 
+
+}
+
+
+OptionalType
+
+
+
+Optional<Integer> optional = display("javeed");
+
+	if(optional.isPresent()){
+
+		op
+
+	}
+
+
+
+
+
+
+
+

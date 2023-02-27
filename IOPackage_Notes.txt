@@ -1,0 +1,60 @@
+java.io.*; package
+
+
+Character Stream Classes:
+=========================
+
+The classes comes under this category will read/write data char by char.
+
+Reader
+FileReader
+BufferedReader		// read()					
+InputStreamReader
+
+Writer
+FileWriter
+BufferedWriter
+OutputStreamWriter    // write
+PrintWriter
+
+
+Usage:
+Use these classes when we have pur characters / text data.
+Ex: Text file , secrect-code , OTP etc
+And sending 100% is mandatory 
+
+
+
+
+
+
+Byte Stream Classes:
+=====================
+
+The classes comes under this category will read/write data byte by byte.
+
+InputStream
+FileInputSteam
+BufferedInputStream    //read() , readLine()
+ObjectInputStream
+
+
+
+OutputStream
+FileOutputStream
+BufferedOutputStream
+ObjectOutputStream          //write()
+
+
+Usage:
+Use when you have bytes of data.
+Ex: Files , Audio , Video , Digital signature, pictures.
+
+
+
+
+
+
+
+
+

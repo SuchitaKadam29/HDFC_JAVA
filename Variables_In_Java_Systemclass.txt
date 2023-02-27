@@ -56,7 +56,10 @@ class System {
 
 public static PrintStream err= new PrintStream();
 
+public static void	gc(){
 
+		// garbage collector
+	}
 
 
 
@@ -64,9 +67,33 @@ public static PrintStream err= new PrintStream();
 
 }
 
+class Employee{
+
+	int eid;
+
+	public void setEid(int eid){
+		this.eid = eid;
+	}
+
+
+}
 
 
 
+class Demo{
+
+ public static Employee emp = new Employee();
+
+
+}
+
+
+main(){
+
+	Demo.emp.setEid(101);
+
+	System.out.print();
+}
 
 
 

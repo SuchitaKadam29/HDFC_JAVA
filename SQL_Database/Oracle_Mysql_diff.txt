@@ -1,0 +1,64 @@
+Oracle DB:
+connect  username/password
+connect   system/*****     (admin user)
+employee table
+customer table
+
+
+Creating New User in Oracle:
+=============================
+1.CREATE USER javeed IDENTIFIED BY tiger;
+2. GRANT CONNECT , RESOURCE to javeed;
+
+connect   javeed/*****
+
+
+Create any no. of tables you want. 
+
+DDL: Auto-commit
+
+DML: DML Commands are not auto-commit.
+
+Note: After every DML query we should use commit command to save the transaction or records permanently.
+
+insert query;
+commit; // to save records permanently.
+
+Note: IN Oracle DB , transaction control is user responsibility.
+
+
+IN oracle we can get current date using
+1. current_date or
+2. sysdate
+
+
+Mysql/Postgres/H2/Maria DB
+==========================:
+1. connect with any one of above DB software by using credentials.
+mysql: 
+username: root
+password: root  or  admin or anything
+
+
+Employee
+
+eid integer(3)   ename varchar(25)  salary  decimal
+101           VIVEK             2000.0
+102           NARESH            3000.0
+103           PRATAP            4000.0
+104           SHASHWAT           3000.0
+
+
+In Mysql Database all DML Transactions will be control by system and DML Queries are auto-commit.
+But as user we can also control the transactions.
+
+
+
+
+
+
+
+
+
+
+

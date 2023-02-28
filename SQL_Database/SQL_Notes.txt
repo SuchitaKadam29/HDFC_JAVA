@@ -45,6 +45,7 @@ Ex:  Account_Active Boolean;
 1. DDL 
 It is used to work with database schema object structures.
 Ex: Tables, Users, Views ....
+All DDL commands are auto-commit.
 
 CREATE , ALTER , TRUNCATE , DROP ,RENAME
 
@@ -72,8 +73,16 @@ drop: it is used to drop/delete column or column-constraint.
 ALTER TABLE Employee  drop column comm;
 ALTER TABLE Employee  drop constraint emp_pk;
 
+
+
+
 Note: to drop constraints , while writing constraints in column constraint name is mandatory to be given.
 Ex:create table employee( eid integer(3) constraint emp_pk  primary key)
+
+rename table:
+ALTER TABLE Employee RENAME emp_table;
+
+ALTER TABLE Employee RENAME COLUMN ename TO emp_name;
 
 ------------------------------------------------------
 Let say we have below table
@@ -97,6 +106,82 @@ TRUNCATE COMMAND:
 -----------------
 TRUNCATE TABLE Employee;
 The above Employee table only records will be removed permanently but table structure will be there.
+
+RENAME COMMAND:
+---------------
+RENAME TABLE 
+
+
+
+
+
+
+DML: 
+Data Manipulation Lang:
+INSERT , UPDATE , DELETE
+When ever we want to deal/manipulate with table data or records then use DML Commands.
+
+DML transactions can be control by system or user.
+
+INSERT: 
+This command is used to insert new records into the tables.
+
+syn1: insert into table_name values(value1,value2,value3....);  // need follow table columns order
+
+syn2: insert into table_name(eid,salary,ename) values(102,8000,'tom'); 
+			// the columns name not used will get implicit null values from system
+
+UPDATE:
+This command is used to update existing records in tables.
+
+syn: update table_name set  column1 = new_value , column2 = new_value where  column = value;
+
+    ex: update employee set  doj = '2022-01-19' , comm = 500 where eid = 102;
+
+DELETE:
+This command is used to delete/remove records fromt tables.
+command to delete set of records based on where condition.
+delete from employee where eid = 101;  // it will delete only 101 record
+delete from employee where salary = 25000;  // it will delete all employees with sal = 20000
+
+command to delete all:
+ delete from employee; // dont use it // we should write where condition / filters always 
+truncate table employee; 
+remove all records from table permanently and cannot be recover
+delete  from employee;
+remove all records from table but can be recover we user control the transaction using TCL Command roolback command.
+
+
+
+DQL / DRL Command:
+-------------------
+SELECT COMMAND (read only)
+
+syn: select  projection/columns  from table_name where column_name = value;
+
+select * from employee;
+
+select  eid,ename from employee where salary > 20000;
+
+Begin transaction  // start transaction
+insert ;
+update ;
+
+savepoint s1;
+
+delete;
+select;
+
+commit; // transaction completed 100% successfully
+
+rollback; // transaction cancel 0% all get rollback
+
+rollback s1; // rollback till s1 savepoin only ie., delete..
+
+
+TCL COMMANDS:
+COMMIT , SAVEPOINT , ROLLBACK;
+
 
 
  

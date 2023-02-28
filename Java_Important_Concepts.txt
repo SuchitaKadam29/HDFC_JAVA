@@ -1,0 +1,15 @@
+Java Important Topics:
+-----------------------
+1.Fundamentals (data types, type of variable)
+2.OOPs
+Inheritance,Polylmorphism,Encapsulation,Abstraction,Data Hiding
+3. POJO/Entity Class
+4. Collections (arrays, list,set ,map)
+   ArrayList,Queue,HashSet,TreeSet,HashMap,TreeMap
+5. Java8 Features
+  java.time package , functional interface and types, lambda exp , Stream API using Collections.
+6.Exception Handling
+7.MultiThreading
+8.IO Package
+9.JDBC CRUD Operation with any database.
+10.SQL database (mysql / oracle/ postgres)

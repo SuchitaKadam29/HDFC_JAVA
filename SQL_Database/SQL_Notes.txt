@@ -1,0 +1,102 @@
+Data: Any meaning information which describe the purpose of particular entity.
+
+Database: Collection of data in tabular format , where data can be stored digitally and can be manipulated and fetch by using some SQL commands.
+
+Database Systems/Software:
+SQL Database are relational databases.
+Ex: Oracle , Mysql , Postgres , H2 , MariaDB ....
+
+
+SQL : Structural Query Lang (SQL not case-sensitive)
+
+Datatypes:
+Numeric Data types: 
+Integer,Number,Decimal,Double
+Ex: eid integer(3)  
+101,102,99, 5
+
+
+Character Data types:
+======================
+char , varchar
+Ex:  IFSC char(6);
+	'HDFC01'
+	'HDFC09'
+	
+eX:   name varchar(15)
+		'tom'
+		'javeed'
+
+Data and Time Dataytypes:
+=========================
+Date  , DateTime
+
+Ex: DOB Date  , Date_of_Sale  Date
+Mysql Date Formats: yyyy-mm-dd   (2023-02-28)
+Oracle Date Format: dd-Mon-yy	(28-FEB-2023)	
+
+Boolean:
+========
+Ex:  Account_Active Boolean;
+	true/false
+
+
+
+1. DDL 
+It is used to work with database schema object structures.
+Ex: Tables, Users, Views ....
+
+CREATE , ALTER , TRUNCATE , DROP ,RENAME
+
+Creating Database Schema:
+---------------------------
+CREATE COMMAND:
+----------------
+CREATE  DATABASE hdfc_db;
+
+CREATE TABLE  employee(eid integer(3) constraint emp_pk  primary key , ename varchar(20) , salary decimal , doj date);
+
+ALTER COMMAND:
+--------------
+
+ALTER: add,modify,drop
+
+add: it is used to add new columns or constraints to the existing column  
+ALTER TABLE Employee add(comm  decimal(7,2));
+ALTER TABLE Employee add constraint primary key(eid);
+
+modify: it is used to modify existing column data types and sizes
+ALTER TABLE  Employee  modify ename varchar(30);
+
+drop: it is used to drop/delete column or column-constraint.
+ALTER TABLE Employee  drop column comm;
+ALTER TABLE Employee  drop constraint emp_pk;
+
+Note: to drop constraints , while writing constraints in column constraint name is mandatory to be given.
+Ex:create table employee( eid integer(3) constraint emp_pk  primary key)
+
+------------------------------------------------------
+Let say we have below table
+eid integer(3)   ename varchar(25)  salary  decimal
+101           VIVEK             2000.0
+102           NARESH            3000.0
+103           PRATAP            4000.0
+104           SHASHWAT           3000.0
+--------------------------------------------------
+
+
+
+DROP COMMAND:
+-------------
+DROP TABLE Employee;
+
+The Employee Table will be destroyed or removed permanently
+
+
+TRUNCATE COMMAND:
+-----------------
+TRUNCATE TABLE Employee;
+The above Employee table only records will be removed permanently but table structure will be there.
+
+
+ 

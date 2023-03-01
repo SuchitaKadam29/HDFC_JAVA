@@ -1,0 +1,28 @@
+SUB QUERY:
+
+Nested queries known as sub-query.
+In this always inner most query execute first then followed by outer query.
+
+mysql> select * from employee where salary > (select salary from employee where ename = 'Ford');
++-----+--------+--------+------+-----------+------+------+
+| eid | ename  | salary | comm | job       | Mid  | dno  |
++-----+--------+--------+------+-----------+------+------+
+| 101 | King   |  50000 | NULL | President | NULL |   10 |
+| 102 | Smith  |  45000 | 2000 | Manager   |  101 |   10 |
+| 108 | Javeed |  47000 | NULL | Analyst   |  101 |   40 |
+| 109 | Ritesh |  38000 | NULL | HR        |  101 |   30 |
++-----+--------+--------+------+-----------+------+------+S
+4 rows in set (0.02 sec)
+
+
+
+ Here, condition is in dept table , data is in employee table
+mysql> select * from employee where  dno = (select dno from dept where location='Hyderabad');
++-----+-------+--------+------+-----------+------+------+
+| eid | ename | salary | comm | job       | Mid  | dno  |
++-----+-------+--------+------+-----------+------+------+
+| 101 | King  |  50000 | NULL | President | NULL |   10 |
+| 102 | Smith |  45000 | 2000 | Manager   |  101 |   10 |
+| 106 | Jerry |  32000 |  500 | Developer |  102 |   10 |
++-----+-------+--------+------+-----------+------+------+
+3 rows in set (0.00 sec)

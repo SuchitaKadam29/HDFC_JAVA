@@ -1,0 +1,136 @@
+Constraints:
+Set of rules or restrictions on database tables or records.
+
+PRIMARY KEY
+FOREIGN KEY
+NOT NULL
+UNIQUE
+
+---------------------------------------------------------------
+
+Create DB:
+----------
+CREATE  DATABASE database_name;
+
+use database_name;
+
+Dept Table / Parent Table:
+-------------------------
+CREATE TABLE Dept(dno integer(3),dname varchar(30),location varchar(30) , primary key(dno)  );
+
+Employee/Child Table:
+---------------------
+CREATE TABLE EMPLOYEE(eid integer(3) primary key,ename varchar(20),salary integer,comm integer,job varchar(20) , Mid integer(3) , dno integer(3) references dept(dno));
+
+
+
+
+Dept records:
+-------------
+ INSERT INTO DEPT Values(10,'Development','Hyderabad');
+ INSERT INTO DEPT Values(20,'Testing','Pune');
+ INSERT INTO DEPT Values(30,'Operation','Mumbai');
+ INSERT INTO DEPT Values(40,'Research','Chennai');
+ INSERT INTO DEPT Values(50,'Sales','Banglore');
+
+
+Employee Records:
+------------------
+ insert into employee values(101,'King',50000,null,'President',null,10);
+
+ insert into employee values(102,'Smith',45000,2000,'Manager',101,10);
+ insert into employee values(103,'Ford',35000,1000,'Manager',101,20);
+
+insert into employee values(104,'Tom',25000,3000,'Tester',103,20);
+ insert into employee values(105,'Scott',28000,2000,'Tester',103,20);
+
+
+ insert into employee values(106,'Jerry',32000,500,'Developer',102,10);
+ insert into employee values(107,'Adam',30000,200,'Developer',102,20);
+
+insert into employee values(108,'Javeed',47000,null,'Analyst',101,40);
+
+ insert into employee values(109,'Ritesh',38000,null,'HR',101,30);
+
+insert into employee values(110,'Raju',7000,1000,'Clerk',101,null);
+
+
+
+
+
+
+SELECT Operations againts Employee table:
+===========================================
+
+mysql> select * from employee where salary > 25000;
+
+mysql> select * from employee where salary != 25000;
+
+
+mysql> select * from employee where job = 'Developer' OR job = 'Tester' order by ename asc;
+
+
+mysql> select * from employee where job = 'Developer' OR job = 'Tester' order by ename desc;
+
+mysql> select * from employee where job = 'Developer' OR salary > 30000;
+
+mysql> select * from employee where salary = 30000 and salary = 50000;
+
+mysql> select * from employee where comm IS  null;
+
+mysql> select * from employee where comm IS NOT null;
+
+mysql> select * from employee where salary > 30000 and salary < 50000;
+
+
+mysql> select * from employee where salary BETWEEN 30000 AND 50000;
+
+mysql> select * from employee where salary NOT BETWEEN 30000 AND 50000;
+
+mysql> select * from employee where job = 'Developer' OR job = 'Tester' OR job = 'Manager';
+
+mysql> select * from employee where ename LIKE 'S%';
++-----+-------+--------+------+---------+------+------+
+| eid | ename | salary | comm | job     | Mid  | dno  |
++-----+-------+--------+------+---------+------+------+
+| 102 | Smith |  45000 | 2000 | Manager |  101 |   10 |
+| 105 | Scott |  28000 | 2000 | Tester  |  103 |   20 |
++-----+-------+--------+------+---------+------+------+
+2 rows in set (0.03 sec)
+
+mysql> select * from employee where ename LIKE '%m';
++-----+-------+--------+------+-----------+------+------+
+| eid | ename | salary | comm | job       | Mid  | dno  |
++-----+-------+--------+------+-----------+------+------+
+| 104 | Tom   |  25000 | 3000 | Tester    |  103 |   20 |
+| 107 | Adam  |  30000 |  200 | Developer |  102 |   20 |
++-----+-------+--------+------+-----------+------+------+
+2 rows in set (0.00 sec)
+
+mysql> select * from employee where ename LIKE 'T_m';
++-----+-------+--------+------+--------+------+------+
+| eid | ename | salary | comm | job    | Mid  | dno  |
++-----+-------+--------+------+--------+------+------+
+| 104 | Tom   |  25000 | 3000 | Tester |  103 |   20 |
++-----+-------+--------+------+--------+------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from employee where eid LIKE '%4';
++-----+-------+--------+------+--------+------+------+
+| eid | ename | salary | comm | job    | Mid  | dno  |
++-----+-------+--------+------+--------+------+------+
+| 104 | Tom   |  25000 | 3000 | Tester |  103 |   20 |
++-----+-------+--------+------+--------+------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from employee where DOJ LIKE '%2023';
+
+all employees  with year 2023 in DOJ
+
+
+mysql> select * from employee order by salary asc;
+
+mysql> select distinct job from employee;
+
+
+mysql> select * from employee limit 5;

@@ -1,0 +1,188 @@
+SQL GROUP FUNCTION/Agregate funcs
+
+1. MIN 
+2. MAX
+3. SUM
+4. COUNT
+5. AVG
+
+
+mysql> select * from employee;
++-----+-------+--------+------------+--------+
+| eid | ename | salary | doj        | comm   |
++-----+-------+--------+------------+--------+
+| 101 | King  |  50000 | 2023-02-28 |   NULL |
+| 102 | Smith |  30000 | 2022-01-19 | 500.00 |
+| 103 | Ford  |  40000 | 2023-02-28 | 300.00 |
+| 104 | Scott |  25000 | 2023-02-27 | 200.00 |
++-----+-------+--------+------------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select min(salary) from employee;
++-------------+
+| min(salary) |
++-------------+
+|       25000 |
++-------------+
+1 row in set (0.06 sec)
+
+mysql> select max(salary) from employee;
++-------------+
+| max(salary) |
++-------------+
+|       50000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select min(doj) from employee;
++------------+
+| min(doj)   |
++------------+
+| 2022-01-19 |
++------------+
+1 row in set (0.02 sec)
+
+mysql> select max(doj) from employee;
++------------+
+| max(doj)   |
++------------+
+| 2023-02-28 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select sum(salary) from employee;
++-------------+
+| sum(salary) |
++-------------+
+|      145000 |
++-------------+
+1 row in set (0.01 sec)
+
+mysql> select avg(salary) from employee;
++-------------+
+| avg(salary) |
++-------------+
+|  36250.0000 |
++-------------+
+1 row in set (0.00 sec) 
+
+
+mysql> select count(*) from employee;
++----------+
+| count(*) |
++----------+
+|       10 |
++----------+
+1 row in set (0.03 sec)
+
+mysql> select count(comm) from employee;
++-------------+
+| count(comm) |
++-------------+
+|           7 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select count(dno) from employee;
++------------+
+| count(dno) |
++------------+
+|          9 |
++------------+
+1 row in set (0.00 sec)
+
+
+
+
+mysql> select job,sum(salary) from employee group by job;
++-----------+-------------+
+| job       | sum(salary) |
++-----------+-------------+
+| President |       50000 |
+| Manager   |       80000 |
+| Tester    |       53000 |
+| Developer |       62000 |
+| Analyst   |       47000 |
+| HR        |       38000 |
+| Clerk     |        7000 |
++-----------+-------------+
+7 rows in set (0.00 sec)
+
+
+
+full select query
+
+mysql> select job,sum(salary) from employee where job != 'Developer'  group by job order by job;
++-----------+-------------+
+| job       | sum(salary) |
++-----------+-------------+
+| Analyst   |       47000 |
+| Clerk     |        7000 |
+| HR        |       38000 |
+| Manager   |       80000 |
+| President |       50000 |
+| Tester    |       53000 |
++-----------+-------------+
+6 rows in set (0.00 sec)
+
+step1
+mysql> select job,salary from employee where job != 'Developer';
++-----------+--------+
+| job       | salary |
++-----------+--------+
+| President |  50000 |
+| Manager   |  45000 |
+| Manager   |  35000 |
+| Tester    |  25000 |
+| Tester    |  28000 |
+| Analyst   |  47000 |
+| HR        |  38000 |
+| Clerk     |   7000 |
++-----------+--------+
+8 rows in set (0.00 sec)
+
+step2
+mysql> select job,sum(salary) from employee group by job;
++-----------+-------------+
+| job       | sum(salary) |
++-----------+-------------+
+| President |       50000 |
+| Manager   |       80000 |
+| Tester    |       53000 |
+| Developer |       62000 |
+| Analyst   |       47000 |
+| HR        |       38000 |
+| Clerk     |        7000 |
++-----------+-------------+
+7 rows in set (0.00 sec)
+
+step3
+mysql> select job,sum(salary) from employee group by job order by job;
++-----------+-------------+
+| job       | sum(salary) |
++-----------+-------------+
+| Analyst   |       47000 |
+| Clerk     |        7000 |
+| Developer |       62000 |
+| HR        |       38000 |
+| Manager   |       80000 |
+| President |       50000 |
+| Tester    |       53000 |
++-----------+-------------+
+7 rows in set (0.00 sec)
+
+
+mysql> select job,sum(salary) from employee where job != 'Developer'  group by job  having sum(salary) > 40000 order by job;
++-----------+-------------+
+| job       | sum(salary) |
++-----------+-------------+
+| Analyst   |       47000 |
+| Manager   |       80000 |
+| President |       50000 |
+| Tester    |       53000 |
++-----------+-------------+
+
+
+
+
+

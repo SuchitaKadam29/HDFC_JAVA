@@ -1,0 +1,157 @@
+JOINs:
+Joins are the concept of merging data from multiple tables to display in required formats to the clients/customers.
+
+Types:
+1. Oracle Joins
+2. ANSI Joins
+
+mysql> select  eid,ename,salary,job, d.dno,dname,location  from employee  e , dept  d  where e.dno = d.dno;
++-----+--------+--------+-----------+-----+-------------+-----------+
+| eid | ename  | salary | job       | dno | dname       | location  |
++-----+--------+--------+-----------+-----+-------------+-----------+
+| 101 | King   |  50000 | President |  10 | Development | Hyderabad |
+| 102 | Smith  |  45000 | Manager   |  10 | Development | Hyderabad |
+| 103 | Ford   |  35000 | Manager   |  20 | Testing     | Pune      |
+| 104 | Tom    |  25000 | Tester    |  20 | Testing     | Pune      |
+| 105 | Scott  |  28000 | Tester    |  20 | Testing     | Pune      |
+| 106 | Jerry  |  32000 | Developer |  10 | Development | Hyderabad |
+| 107 | Adam   |  30000 | Developer |  20 | Testing     | Pune      |
+| 108 | Javeed |  47000 | Analyst   |  40 | Research    | Chennai   |
+| 109 | Ritesh |  38000 | HR        |  30 | Operation   | Mumbai    |
++-----+--------+--------+-----------+-----+-------------+-----------+
+9 rows in set (0.00 sec)
+
+mysql> select  eid,ename,salary,job, d.dno,dname,location  from employee  e CROSS JOIN dept  d  where e.dno = d.dno;
++-----+--------+--------+-----------+-----+-------------+-----------+
+| eid | ename  | salary | job       | dno | dname       | location  |
++-----+--------+--------+-----------+-----+-------------+-----------+
+| 101 | King   |  50000 | President |  10 | Development | Hyderabad |
+| 102 | Smith  |  45000 | Manager   |  10 | Development | Hyderabad |
+| 103 | Ford   |  35000 | Manager   |  20 | Testing     | Pune      |
+| 104 | Tom    |  25000 | Tester    |  20 | Testing     | Pune      |
+| 105 | Scott  |  28000 | Tester    |  20 | Testing     | Pune      |
+| 106 | Jerry  |  32000 | Developer |  10 | Development | Hyderabad |
+| 107 | Adam   |  30000 | Developer |  20 | Testing     | Pune      |
+| 108 | Javeed |  47000 | Analyst   |  40 | Research    | Chennai   |
+| 109 | Ritesh |  38000 | HR        |  30 | Operation   | Mumbai    |
++-----+--------+--------+-----------+-----+-------------+-----------+
+9 rows in set (0.00 sec)
+
+
+OUTER JOINS:
+1.LEFT OUTER JOIN
+2.RIGHT OUTER JOIN
+3. FULL OUTER JOIN (not supported by all DBs)
+
+LEFT OUTER JOIN
+===============:
+mysql> select eid,ename,salary,job, d.dno , dname  from employee e  left outer join dept d  ON(e.dno = d.dno);
++-----+--------+--------+-----------+------+-------------+
+| eid | ename  | salary | job       | dno  | dname       |
++-----+--------+--------+-----------+------+-------------+
+| 101 | King   |  50000 | President |   10 | Development |
+| 102 | Smith  |  45000 | Manager   |   10 | Development |
+| 103 | Ford   |  35000 | Manager   |   20 | Testing     |
+| 104 | Tom    |  25000 | Tester    |   20 | Testing     |
+| 105 | Scott  |  28000 | Tester    |   20 | Testing     |
+| 106 | Jerry  |  32000 | Developer |   10 | Development |
+| 107 | Adam   |  30000 | Developer |   20 | Testing     |
+| 108 | Javeed |  47000 | Analyst   |   40 | Research    |
+| 109 | Ritesh |  38000 | HR        |   30 | Operation   |
+| 110 | Raju   |   7000 | Clerk     | NULL | NULL        |
++-----+--------+--------+-----------+------+-------------+
+10 rows in set (0.00 sec)
+
+RIGHT OUTER JOIN
+=================:
+mysql> select eid,ename,salary,job, d.dno , dname  from employee e  right outer join dept d  ON(e.dno = d.dno);
++------+--------+--------+-----------+-----+-------------+
+| eid  | ename  | salary | job       | dno | dname       |
++------+--------+--------+-----------+-----+-------------+
+|  106 | Jerry  |  32000 | Developer |  10 | Development |
+|  102 | Smith  |  45000 | Manager   |  10 | Development |
+|  101 | King   |  50000 | President |  10 | Development |
+|  107 | Adam   |  30000 | Developer |  20 | Testing     |
+|  105 | Scott  |  28000 | Tester    |  20 | Testing     |
+|  104 | Tom    |  25000 | Tester    |  20 | Testing     |
+|  103 | Ford   |  35000 | Manager   |  20 | Testing     |
+|  109 | Ritesh |  38000 | HR        |  30 | Operation   |
+|  108 | Javeed |  47000 | Analyst   |  40 | Research    |
+| NULL | NULL   |   NULL | NULL      |  50 | Sales       |
++------+--------+--------+-----------+-----+-------------+
+10 rows in set (0.00 sec)
+
+IN Mysql DB Full outer join
+=============================
+mysql> select eid,ename,salary,job, d.dno , dname  from employee e  right outer join dept d  ON(e.dno = d.dno)
+    -> UNION
+    -> select eid,ename,salary,job, d.dno , dname  from employee e  left outer join dept d  ON(e.dno = d.dno);
+
+
+
+IN ORACLE DATABASE FULL OUTER JOIN:
+===================================
+ -> select eid,ename,salary,job, d.dno , dname  from employee e  full outer join dept d  ON(e.dno = d.dno);
+
+
+
+SELF JOINS
+===========
+
+
+mysql> select e.eid,e.ename,m.eid,m.ename from employee e, employee  m where e.eid = m.eid;
++-----+--------+-----+--------+
+| eid | ename  | eid | ename  |
++-----+--------+-----+--------+
+| 101 | King   | 101 | King   |
+| 102 | Smith  | 102 | Smith  |
+| 103 | Ford   | 103 | Ford   |
+| 104 | Tom    | 104 | Tom    |
+| 105 | Scott  | 105 | Scott  |
+| 106 | Jerry  | 106 | Jerry  |
+| 107 | Adam   | 107 | Adam   |
+| 108 | Javeed | 108 | Javeed |
+| 109 | Ritesh | 109 | Ritesh |
+| 110 | Raju   | 110 | Raju   |
++-----+--------+-----+--------+
+10 rows in set (0.00 sec)
+
+mysql> select e.eid,e.ename,m.eid,m.ename from employee e, employee  m where e.eid = e.mid;
+Empty set (0.00 sec)
+
+mysql> select e.eid,e.ename,m.eid,m.ename from employee e, employee  m where e.mid = m.eid;
++-----+--------+-----+-------+
+| eid | ename  | eid | ename |
++-----+--------+-----+-------+
+| 102 | Smith  | 101 | King  |
+| 103 | Ford   | 101 | King  |
+| 104 | Tom    | 103 | Ford  |
+| 105 | Scott  | 103 | Ford  |
+| 106 | Jerry  | 102 | Smith |
+| 107 | Adam   | 102 | Smith |
+| 108 | Javeed | 101 | King  |
+| 109 | Ritesh | 101 | King  |
+| 110 | Raju   | 101 | King  |
++-----+--------+-----+-------+
+9 rows in set (0.00 sec)
+
+mysql> select e.eid,m.eid,m.mid from employee e, employee  m where e.mid = m.eid;
++-----+-----+------+
+| eid | eid | mid  |
++-----+-----+------+
+| 102 | 101 | NULL |
+| 103 | 101 | NULL |
+| 104 | 103 |  101 |
+| 105 | 103 |  101 |
+| 106 | 102 |  101 |
+| 107 | 102 |  101 |
+| 108 | 101 | NULL |
+| 109 | 101 | NULL |
+| 110 | 101 | NULL |
++-----+-----+------+
+9 rows in set (0.00 sec)
+
+
+
+
+

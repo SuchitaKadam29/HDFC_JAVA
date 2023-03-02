@@ -1,0 +1,168 @@
+JSON:
+Javascript Object Notation
+"employee":{
+	  "id":101,
+	  "name":"javeed",
+          "salary":80000,
+          "address":{"city":"hyderabad","country":"india"}
+}
+
+
+
+
+Postgres SQL:
+--------------
+
+1.create database:
+create database  database_name;
+
+2.connect database.
+\c  database_name;
+
+
+mysql:
+create table employee (eid integer increment , ename varchar(20));
+
+Psql:
+create table orders ( id serial primary key ,info json NOT NULL );
+	
+insert into order(info) values('{"customer":"John Doe",
+			           items":{"product":"cooldrink","qty":5,"price":500}
+				}');
+
+Orders Table Data:
+-------------------
+
+estore=# insert into orders(info) values('{"customer":"John Doe","items":{"product":"cooldrink","qty":5,"price":500}}');
+INSERT 0 1
+estore=# select * from orders;
+ id |                                    info
+----+-----------------------------------------------------------------------------
+  1 | {"customer":"John Doe","items":{"product":"cooldrink","qty":5,"price":500}}
+(1 row)
+
+
+estore=# insert into orders(info) values('{"customer":"King","items":{"product":"mobile","qty":2,"price":40000}}');
+INSERT 0 1
+estore=# insert into orders(info) values('{"customer":"Tom","items":{"product":"laptop","qty":1,"price":60000}}');
+INSERT 0 1
+estore=# insert into orders(info) values('{"customer":"Raju","items":{"product":"toys","qty":3,"price":1200}}');;
+INSERT 0 1
+estore=# select * from orders;
+ id |                                    info
+----+-----------------------------------------------------------------------------
+  1 | {"customer":"John Doe","items":{"product":"cooldrink","qty":5,"price":500}}
+  2 | {"customer":"King","items":{"product":"mobile","qty":2,"price":40000}}
+  3 | {"customer":"Tom","items":{"product":"laptop","qty":1,"price":60000}}
+  4 | {"customer":"Raju","items":{"product":"toys","qty":3,"price":1200}}
+(4 rows)
+
+
+estore=# select info from orders;
+                                    info
+-----------------------------------------------------------------------------
+ {"customer":"John Doe","items":{"product":"cooldrink","qty":5,"price":500}}
+ {"customer":"King","items":{"product":"mobile","qty":2,"price":40000}}
+ {"customer":"Tom","items":{"product":"laptop","qty":1,"price":60000}}
+ {"customer":"Raju","items":{"product":"toys","qty":3,"price":1200}}
+(4 rows)
+
+
+
+postgreSQL provides two native operators -> and ->> to help you query JSON data.
+
+The operator -> returns JSON object field by key.
+The operator ->> returns JSON object field by text.
+The following query uses the operator -> to get all customers in form of JSON:
+
+
+
+Now, select customer names from info column.
+
+estore=# select info -> 'customer' AS customer_names from orders;
+ customer_names
+----------------
+ "John Doe"
+ "King"
+ "Tom"
+ "Raju"
+(4 rows) 
+
+
+estore=# select info -> 'items' -> 'product'  from orders;
+  ?column?
+-------------
+ "cooldrink"
+ "mobile"
+ "laptop"
+ "toys"
+(4 rows)
+
+
+estore=# select info -> 'items' ->> 'product'  from orders;
+ ?column?
+-----------
+ cooldrink
+ mobile
+ laptop
+ toys
+(4 rows)
+
+
+Use JSON operator in WHERE clause
+We can use the JSON operators in WHERE clause to filter the returning rows. For example, to find out who bought Diaper, we use the following query:
+
+SELECT info ->> 'customer' AS customer
+FROM orders
+WHERE info -> 'items' ->> 'product' = 'Diaper';
+Code language: SQL (Structured Query Language) (sql)
+postgresql json opeartor in where clause
+To find out who bought two products at a time, we use the following query:
+
+SELECT info ->> 'customer' AS customer,
+	info -> 'items' ->> 'product' AS product
+FROM orders
+WHERE CAST ( info -> 'items' ->> 'qty' AS INTEGER) = 2
+Code language: SQL (Structured Query Language) (sql)
+postgresql json operator cast in where clause
+Notice that we used the type cast to convert the qty field into INTEGER type and compare it with two.
+
+Apply aggregate functions to JSON data
+We can apply aggregate functions such as MIN, MAX, AVERAGE, SUM, etc., to JSON data. For example, the following statement returns minimum quantity, maximum quantity, average quantity and the total quantity of products sold.
+
+SELECT 
+   MIN (CAST (info -> 'items' ->> 'qty' AS INTEGER)),
+   MAX (CAST (info -> 'items' ->> 'qty' AS INTEGER)),
+   SUM (CAST (info -> 'items' ->> 'qty' AS INTEGER)),
+   AVG (CAST (info -> 'items' ->> 'qty' AS INTEGER))
+FROM orders;
+Code language: SQL (Structured Query Language) (sql)
+postgresql json aggregate function
+PostgreSQL JSON functions
+PostgreSQL provides us with some functions to help you process JSON data.
+
+json_each function
+The json_each() function allows us to expand the outermost JSON object into a set of key-value pairs. See the following statement:
+
+SELECT json_each (info)
+FROM orders;
+
+
+
+estore=# SELECT distinct json_typeof (info->'items'->'qty') as qty_type, json_typeof(info->'items'->'product' )  from orders;
+ qty_type | json_typeof
+----------+-------------
+ number   | string
+(1 row)
+
+
+estore=# SELECT distinct json_typeof (info->'items'->'qty') as qty_type, json_typeof(info->'items'->'product' ) as product_type  from orders;
+ qty_type | product_type
+----------+--------------
+ number   | string
+
+
+
+
+
+

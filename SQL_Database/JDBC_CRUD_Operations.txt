@@ -1,0 +1,76 @@
+java.sql.*;
+
+interfaces:
+===========
+Driver
+Connection
+Statement
+PreparedStatement
+CallableStatement
+ResultSet
+
+ResultSetMetaData
+DatabaseMetaData
+
+classes:
+=======
+DriverManager
+Date
+
+
+
+
+IP-Address:
+Unique code given to every machine.
+1.24.7.9
+0 to 255
+129.99.0.230
+
+Port No:
+Unique number given to every application/software installed in a machine.
+8080
+3306
+1234
+5432
+
+
+JDBC Steps.
+1.register or load driver class
+2. get the DB Connection using url,username,password
+3. create any one statement
+4. execute query , call executeUpdate() for DML  and executeQuery() for DQL/select.
+5. close the DB Connection
+
+
+Statement:
+It is used for static queries , means queries which does not ask for any kind of inputs. 
+Ex: select * from dept;
+    delete from dept;
+Ex: DDL queries
+	create,alter,drop,truncate
+DROP TABLE EMPLOYEE;  
+
+
+
+CRUD OPERATIONS:
+----------------
+
+1. ADD
+2. UPDATE
+
+logically insert and update are same.
+
+3.SELECT BY ID
+4. DELETE BY ID
+
+logically select one and delete one are same.
+
+5. SELECT ALL
+
+
+
+
+
+
+
+

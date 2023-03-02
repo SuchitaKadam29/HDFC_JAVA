@@ -22,16 +22,19 @@ public class JdbcSteps {
  			// step3 create any one statement
  		Statement  stmt =	conn.createStatement();
  		
- String insertQuery = "insert into dept(dno,dname,location) values(70,'security','delhi')";
- 				
+ //String insertQuery = "insert into dept(dno,dname,location) values(70,'security','delhi')";
+ 	
+ 	//	String updateQuery = "update dept set location = 'hyderabad' where dno = 70";
+ 		
+ 		String deleteQuery = "delete from dept where dno = 70";
  				// step4 write query and execute it
  				// select query use executeQuery()  Select
  				// non - select query use executeUpdate() for DML
  
  
- 			int count =		stmt.executeUpdate(insertQuery); // DML
+ 			int count =		stmt.executeUpdate(deleteQuery); // DML
  			
- 				System.out.println(count+ "record inserted..");
+ 				System.out.println(count+ " record affected....");
  			
 			conn.close(); // step5 close connection
 			

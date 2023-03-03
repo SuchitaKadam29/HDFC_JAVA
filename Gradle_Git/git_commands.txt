@@ -1,0 +1,55 @@
+git client software:
+commands:
+
+Make any folder as local git repo:
+-> git init
+
+
+NOte: First time connect localrepo with remote repo
+
+-> git remote add origin  https://javeed512@bitbucket.org/hdfc-repo-javeed/myrepo.git
+
+Configure local repo with remote by providing user,email,password info only once
+for authentication and authorization.
+Or
+We can just wait till a window pop-up with browser option , where we can login and get authorization.
+
+
+Add folder/files to local repo
+-> git add .
+
+-> git status
+Note: green message added/staged , red message not added / unstaged
+
+To save file/folders in localrepo use commit
+-> git commit -m "some title message"
+
+-> git push origin master
+Note: sometime use --force to push
+
+For,creating new branch
+-> git branch branch_name
+
+To switch branch
+-> git checkout branch_name
+
+To clone data (as reader not owner) , only first time.
+-> git clone https://javeed512@bitbucket.org/hdfc-repo-javeed/myrepo.git 
+
+To pull update files from remote to localrepo
+-> git pull   https://javeed512@bitbucket.org/hdfc-repo-javeed/myrepo.git
+
+To merge branches , first switch to that child-branch from there use below command to merge with master branch
+-> git checkout branch1  (we are into branch1)
+
+-> git merge branch1 
+
+Note: Now, because of security reasons the owner need to perform pull request  and check what branch are getting merge with what data if everything is fine then pull-request and merge branches.
+
+
+
+
+
+
+
+

@@ -69,8 +69,43 @@ logically select one and delete one are same.
 
 
 
+Statement: For static queries
+PreparedStatement: Dynamic queries
+
+CallableStatement: Calling or executing pl/sql procedures in java.
 
 
+PL/SQL 
+Procedure demo:
+-----------------------
+Create Procedure  Dept_Pro(dno)
+BEGIN
 
+INSERT INTO DEPT Values(10,'Development',null);
+
+UPDATE DEPT SET location = 'pune' where dno = 10;
+
+select * from dept;
+	
+
+END;
+
+Procedure Dept_Pro created successfully.
+
+
+Execute:
+========
+
+call  Dept_Pro;
+
+
+Java Callable Statement:
+--------------------------
+
+String query = "{call Dept_Pro}"
+
+CallableStatement cstmt = conn.prepareCall(query);
+
+		cstmt.execute();
 
 

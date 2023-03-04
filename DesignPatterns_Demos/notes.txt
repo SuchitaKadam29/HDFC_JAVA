@@ -1,0 +1,162 @@
+Factory Design Pattern:
+=======================
+
+public abstract class Plan{
+
+// abstract methods
+
+}
+
+public class GetPlanFactory extends Plan{
+
+private String type;
+
+public GetPlanFactory(String type){
+
+	this.type = type;
+}
+
+}
+
+class GenerateBill {
+
+
+public static void main(Sting ar[]){
+
+Plan plan = new GetPlanFactory("DOMESTICPLAN");
+
+
+}
+
+}
+
+
+
+
+--------------------------------------
+Abstract Factory Pattern:
+=========================
+
+Collection c ;
+
+List  l ;
+
+Collection c =	new ArrayList();
+
+c.add();
+c.size();
+
+List l = new ArrayList();
+
+
+---------------------------------
+Ex2:
+interface IBank {
+
+ public abstract void deposit();
+ public abstract void withdraw();
+
+
+}
+public abstract class BankImp1 implements IBank{
+
+	void deposit(){
+
+	}
+
+}
+
+
+public class BankImp2 extends BankImp1{
+
+	void withdraw(){
+
+	}
+
+
+}
+
+
+BankImp1 bk = new BankImp2(); // deposit()
+
+IBank b = new BankImp2(); // deposit(),withdraw();
+
+Iterator it =	list.iterator();
+
+	Connetion conn =	DBUtil.getDBConnection();
+
+
+SingleTon DesignPattern:
+------------------------
+
+A class should have a method which return same object always.
+
+
+
+
+class Address{
+
+
+}
+
+class Employee{
+int eid;
+String ename;
+Address addr;
+
+
+}
+
+
+
+Loading:
+1. Early
+
+	Employee e1 = new Employee(); // --->addr = new Address();
+
+2.Lazy
+
+	Employee e2 = new Employe(); // ---> addr = null;
+	
+		e2.getAddr(); // new Address();
+
+
+
+public class Bank{
+
+	private Bank bank = null;
+
+	private Bank(){
+
+	}
+
+	public static Bank getBankObj(){
+
+		if(bank == null){
+
+			bank = new Bank();
+		}
+
+	
+	return bank;
+
+
+	}
+
+}
+
+
+---------------------
+
+Dev1: Bank b =   Bank.getBankObj();  // new Bank();  create bank obj 1st time
+
+Dev2: Bank b2 = Bank.getBankObj();// get the existing obj
+
+
+Prototype Design Pattern
+=========================
+
+
+
+
+

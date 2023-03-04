@@ -13,10 +13,6 @@ public class TestSingleton {
 		
 				obj2.printMessage();
 		
-				
-				System.out.println(obj1);
-				System.out.println(obj2);
-				
 			System.out.println(obj1.equals(obj2));
 			
 			System.out.println("DBConnection singleton demo");

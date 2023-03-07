@@ -1,0 +1,47 @@
+
+class   Calsi{
+
+	int add(int a,int b){
+
+		return a+b;
+	}
+
+
+
+}
+
+Unit Testing:
+1.Testing a single unit/function to check
+ -> Function/method returns expected output or not.
+ -> Implementation of that function is as per the requirment or not.
+ -> Quality of software 
+ -> To find out bugs in early stage.
+ 
+In Java JUnit Tool.
+===================
+ Annotations
+-------------
+@Test
+@BeforeAll
+@AfterAll
+@BeforeEach
+@AfterEAch
+@Disable
+
+
+Ex:
+int add(int a, int b){
+
+return a+b;
+
+}
+
+add(4,5);  // valid , expected inputs
+add(4,-5)  //  valid, unexpected input
+add(0,0)  // unexpected inputs
+add(x,y) // unexpected inputs
+
+
+
+
+

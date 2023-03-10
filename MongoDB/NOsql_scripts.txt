@@ -1,0 +1,129 @@
+MongoDB:
+--------
+CREATE DATABASE
+use  DATABASE_NAME;
+
+Note: It will create database and switch to it.
+
+CREATE COLLECTION
+
+db.createCollection("employee"); // here employee is the collection/table name
+
+DROP COLLECTION
+db.collectionName.drop();
+
+
+TO SHOW DATABASES:
+show dbs;
+
+TO SHOW COLLECTIONS:
+show collections;
+
+
+INSERT RECORD:
+syn:- db.collectionName.insert({bson/json object});
+
+Ex1: db.employee.insert({eid:101,ename:"javeed",salary:50000});  // it will insert only one record
+
+In above Nosql query an auto-generated id with name "_id" will be generated which holds hexadecimal value as primary key in RDBMS. 
+
+
+Ex2: db.employee.insertOne({eid:101,ename:"javeed",salary:50000});  // only one record
+
+
+Inserting Multiple Records:
+============================
+
+Ex3: db.employee.insertMany([{eid:103,ename:"ford",salary:35000} , {eid:104,ename:"raju",salary:25000} , {eid:105,ename:"scott",salary:10000}]); 
+
+
+
+Student Collection and Documents
+===================================
+
+use StudentDB;
+
+
+db.student.insertMany(
+          [
+           {sid:101,sname:"raju",fee:5000,dob:"2000-09-01",city:"hyderabad",grade:'A'},
+	   {sid:102,sname:"pratap",fee:4000,dob:"2001-03-21",city:"pune",grade:'B'},
+	   {sid:103,sname:"sahil",fee:3000,dob:"2002-01-05",city:"hyderabad",grade:'B'},
+	   {sid:104,sname:"omkar",fee:2000,dob:"2000-06-15",city:"chennai",grade:'A'},
+	   {sid:105,sname:"tom",fee:7000,dob:"1999-12-23",city:"mumbai",grade:'C'},
+	   {sid:106,sname:"jerry",fee:400,dob:"2010-12-12",city:"delhi",grade:'A'}
+
+
+         ]);
+
+
+
+Find One:
+
+db.student.findOne();
+
+Filters like where clause in SQL
+----------------------------------
+
+db.student.findOne({sname:"tom"}) // find record with sname = tom
+
+Finding Multiple with filer:
+-------------------------------
+db.student.find({city:"hyderabad"}) // find all records with city = hyderabad
+
+
+
+
+
+
+
+
+
+Operation	   Syntax	             Example	                             
+Equality  {<key>:{$eg;<value>}}  db.mycol.find({"by":"tutorials point"}).pretty() 
+
+sql: where by = 'tutorials point'
+
+Less Than	{<key>:{$lt:<value>}}	db.mycol.find({"likes":{$lt:50}}).pretty()	
+sql: where likes < 50
+
+Less Than Equals	{<key>:{$lte:<value>}}	db.mycol.find({"likes":{$lte:50}}).pretty()	
+sql: where likes <= 50
+
+Greater Than	{<key>:{$gt:<value>}}	db.mycol.find({"likes":{$gt:50}}).pretty()	
+sql: where likes > 50
+
+Greater Than Equals	{<key>:{$gte:<value>}}	db.mycol.find({"likes":{$gte:50}}).pretty()	
+sql: where likes >= 50
+
+Not Equals	{<key>:{$ne:<value>}}	db.mycol.find({"likes":{$ne:50}}).pretty()	
+sql: where likes != 50
+
+Values in an array	{<key>:{$in:[<value1>, <value2>,……<valueN>]}}	db.mycol.find({"name":{$in:["Raj", "Ram", "Raghu"]}}).pretty()	
+sql: Where name matches any of the value in :["Raj", "Ram", "Raghu"]
+
+
+Values not in an array	{<key>:{$nin:<value>}}	db.mycol.find({"name":{$nin:["Ramu", "Raghav"]}}).pretty()	
+
+sql: Where name values is not in the array :["Ramu", "Raghav"] or, doesn’t exist at all
+
+
+
+Examples:
+=========
+studentdb> db.student.find({"fee":{$lt:5000}})
+
+studentdb> db.student.find({"fee":{$gt:4000}})
+
+studentdb> db.student.find({"fee":{$lte:5000}})
+
+studentdb> db.student.find({"fee":{$ne:5000}})
+
+studentdb> db.student.find({"sname":{$in:["sahil","tom","omkar"]}})
+
+studentdb> db.student.find({"sname":{$nin:["sahil","tom","omkar"]}})
+
+studentdb> db.student.find({$or:[{"sname":"sahil"},{"fee":5000}]})
+
+studentdb> db.student.find({$and:[{"sname":"sahil"},{"fee":3000}]})
+

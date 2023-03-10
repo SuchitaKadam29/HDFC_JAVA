@@ -127,3 +127,117 @@ studentdb> db.student.find({$or:[{"sname":"sahil"},{"fee":5000}]})
 
 studentdb> db.student.find({$and:[{"sname":"sahil"},{"fee":3000}]})
 
+NOR:
+====
+ db.student.find({$nor:[{"sname":"sahil"},{"fee":3000}]})
+
+Update Queries:
+================
+
+updateOne  OR  findOneAndUpdate():
+------------------------------------
+
+db.student.updateOne({sid:106},{$set:{fee:600,city:'noida'}}) // updating fee,city for sid=106
+
+Note: we can use update() function also but it is deprecated.
+
+
+db.student.findOneAndUpdate(
+	{sname: 'tom'},
+	{ $set: { fee: 3500,city:'banglore'}}
+)
+
+
+updateMany:
+------------
+
+studentdb> db.student.updateMany({fee:{$gt:4000}},{$set:{grade:'A+'}});
+
+
+Starting in MongoDB 4.2:
+==========================
+db.collection.save()
+ method is deprecated. Use db.collection.insertOne() or db.collection.replaceOne() instead.
+
+
+
+
+replaceOne();
+---------------
+
+db.student.replaceOne({_id: ObjectId("640adc28f6d7a71ce0ac6f71")},{sid:106,sname:'John',fee:2500,dob:'2002-01-15',city:'delhi',grade:'B'})
+
+
+remove();
+---------
+It will delete a record or set of records based on given condition or criteria
+
+db.student.deleteMany({fee:{$gt:3000}}) // all records with fee > 3000 will be deleted
+
+db.student.remove({sid:106});
+
+Note: 
+Collection.remove() is deprecated. Use deleteOne, deleteMany, findOneAndDelete
+
+
+
+
+limit() and skip()
+===================
+
+studentdb> db.student.find().limit(3)  // show only 1st 3 records
+
+studentdb> db.student.find().skip(3) // show remaining by skipping 1st 3 records
+
+
+sort() for sorting 
+-------------------
+studentdb> db.student.find().sort({fee:1})  // it will show all records sorted by fee in ascending(1)
+
+studentdb> db.student.find().sort({fee:-1}) // it will show all records sorted by fee in decending(-1)
+
+Note: we can sort by fee or sname or grade or anything else
+
+
+
+
+Aggregate functions or Group functions in MongoDB
+===================================================
+
+sum , avg , min , max
+
+
+find sum of fee based on / group by city
+studentdb> db.student.aggregate([{$group:{_id:"$city",fee:{$sum:"$fee"}}}]);
+
+find avg group by city
+studentdb> db.student.aggregate([{$group:{_id:"$city",fee:{$avg:"$fee"}}}]);
+
+====================================================
+
+Note: Below {$sum:1} is same as count(*)  is sql.
+
+db.student.aggregate([{$group:{_id:"$city",fee:{$sum:1}}}]);  // find count of each fee
+
+studentdb> db.student.aggregate([{$group:{_id:"$city",city:{$sum:1}}}]); // find count of each city
+
+min
+====
+studentdb> db.student.aggregate([{ $group: { _id: "$city", fee: { $min: "$fee" } } }]);
+
+max
+=====
+studentdb> db.student.aggregate([{ $group: { _id: "$city", fee: { $max: "$fee" } } }]);
+
+studentdb> db.student.aggregate([{ $group: { _id: "$grade", fee: { $max: "$fee" } } }]);
+
+
+first:
+======
+studentdb> db.student.aggregate([{ $group: { _id: "$city", fee: {$first:"$fee" } } }]);
+
+
+last:
+=====
+studentdb> db.student.aggregate([{ $group: { _id: "$city", fee: {$last:"$fee" } } }]);
+

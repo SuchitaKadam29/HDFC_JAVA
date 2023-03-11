@@ -1,0 +1,93 @@
+MongoDB Queries:
+================
+db.users.find({"address.city":"McKenziehaven"});  
+//output 
+{
+  _id: 3,
+  name: 'Clementine Bauch',
+  username: 'Samantha',
+  email: 'Nathan@yesenia.net',
+  address: {
+    street: 'Douglas Extension',
+    suite: 'Suite 847',
+    city: 'McKenziehaven',
+    zipcode: '59590-4157',
+    geo: {
+      lat: '-68.6102',
+      lng: '-47.0653'
+    }
+  },
+  phone: '1-463-123-4447',
+  website: 'ramiro.info',
+  company: {
+    name: 'Romaguera-Jacobson',
+    catchPhrase: 'Face to face bifurcated interface',
+    bs: 'e-enable strategic applications'
+  }
+}
+
+
+db.users.find({"address.geo.lat":{$gt:"0"}});
+
+db.users.find({"address.geo.lat":{$lt:"0"}});
+
+db.users.find({$or:[  {"address.geo.lat":{$lt:"0"}} , {"address.geo.lng":{$gt:"0"}} ]  });
+
+
+db.users.find({$or:[  {"address.geo.lat":{$lt:"0"}} , {"address.geo.lng":{$lt:"0"}} ]  });
+
+
+db.users.find({$and:[  {"address.geo.lat":{$lt:"0"}} , {"address.geo.lng":{$lt:"0"}} ]  });
+
+
+exists:
+-------
+db.users.find({username:{$exists:"true"}});
+
+db.users.find({address:{$exists:"true"}});
+
+db.users.find({"address.city":{$exists:"true"}});
+
+
+select * from employee where eid =101 or salary > 8000 or job = 'developer';
+
+select ename from employee;
+
+
+
+
+
+
+find/select query syntax:
+
+db.collection.find({filter} , {projection} , {sort} ) // skip or limit
+
+
+regular expression in mongodb:
+===============================
+^ begin with
+ex:  username:"^K.*"  
+Display all names start with K followed by any characters.
+
+$ end with
+ex:  username:"K.*$n"  
+Display all names start with K and ends with n having  any characters in between
+
+---------------------------------
+db.users.find({username:{$regex:"B.*.t"}},{username:1});
+
+above query shows all usernames begin with B and ends with t. Having any characters in b/w.
+-------------------------------
+db.users.find({username:{$regex:/a/}},{username:1});
+
+show all names having a in the name
+
+---------------------------------------------
+
+db.users.find({username:{$regex:/a$/}},{username:1});
+
+show names which ends with small 'a' 
+
+
+
+

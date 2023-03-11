@@ -1,0 +1,11 @@
+[
+{
+
+"_id":1,
+"bankName":"HDFC",
+"branch":"Gandhi Nagar",
+"ifsc":"HDFC001",
+"city":"Hyderabad",
+"noc":500
+}
+]

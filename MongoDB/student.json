@@ -1,0 +1,61 @@
+[{
+  "_id": {
+    "$oid": "640adc28f6d7a71ce0ac6f6c"
+  },
+  "sid": 101,
+  "sname": "raju",
+  "fee": 5000,
+  "dob": "2000-09-01",
+  "city": "hyderabad",
+  "grade": "A+"
+},{
+  "_id": {
+    "$oid": "640adc28f6d7a71ce0ac6f6d"
+  },
+  "sid": 102,
+  "sname": "pratap",
+  "fee": 4000,
+  "dob": "2001-03-21",
+  "city": "pune",
+  "grade": "B"
+},{
+  "_id": {
+    "$oid": "640adc28f6d7a71ce0ac6f6e"
+  },
+  "sid": 103,
+  "sname": "sahil",
+  "fee": 3000,
+  "dob": "2002-01-05",
+  "city": "hyderabad",
+  "grade": "B"
+},{
+  "_id": {
+    "$oid": "640adc28f6d7a71ce0ac6f6f"
+  },
+  "sid": 104,
+  "sname": "omkar",
+  "fee": 2000,
+  "dob": "2000-06-15",
+  "city": "chennai",
+  "grade": "A"
+},{
+  "_id": {
+    "$oid": "640adc28f6d7a71ce0ac6f70"
+  },
+  "sid": 105,
+  "sname": "tom",
+  "fee": 7000,
+  "dob": "1999-12-23",
+  "city": "mumbai",
+  "grade": "A+"
+},{
+  "_id": {
+    "$oid": "640adc28f6d7a71ce0ac6f71"
+  },
+  "sid": 106,
+  "sname": "John",
+  "fee": 2500,
+  "dob": "2002-01-15",
+  "city": "chennai",
+  "grade": "B"
+}]

@@ -148,6 +148,9 @@ db.student.findOneAndUpdate(
 )
 
 
+db.student.updateOne({sid:106},{$set:{fee:1200,city:"banglore"}});
+
+
 updateMany:
 ------------
 

@@ -89,5 +89,18 @@ db.users.find({username:{$regex:/a$/}},{username:1});
 show names which ends with small 'a' 
 
 
+db.student.aggregate([{$match:{grade:'A'}},{$group:{_id:'$grade',fee:{$max:"$fee"}}}]);
+
+
+
+
+db.cities.aggregate([{$match:{ continent:{$in:["Asia","Africa"]}}}  , {$group:{_id:"$continent"} , "populationCount":{$max:"$population"} }  ]);
+
+
+
+
+
+
+
 
 

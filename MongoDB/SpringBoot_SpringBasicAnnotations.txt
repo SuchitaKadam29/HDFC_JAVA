@@ -1,0 +1,217 @@
+
+REST API:
+---------
+Browser/client sends a httpRequest using Http REST-API(URL)  to the resource(http methods) and get Http Response.
+
+Data can be exchange between client and server in HTML,TEXT,XML or JSON Format.
+
+JSON is most popular and used by all techs.
+
+Http Methods:
+
+1. GET - it is used to get/fetch data from server using @GetMapping Annotation
+Note:Get request help us to get single by id or get all data from server
+Ex: Get Employee By Id
+http://localhost:portno/api/employees/get/{eid}
+http://localhost:8080/api/employees/get/101     --> it return 101 emp record in json format
+
+Ex: Get All Employees
+http://localhost:8080/api/employees/get
+
+
+2. DELETE - it is use to delete/remove existing data from server using @DeleteMapping Annotation
+Note: Delete request help us to delete single record by Id or delete all records from server.
+http://localhost:portno/api/employees/delete/{id}
+http://localhost:8080/api/employees/delete/101     --> it delete 101 emp record from server
+
+3. POST - it is use to  post/insert/create a new record into the server using @PostMapping Annotation
+Note: Post request help us to insert/post a new record to the server
+
+Ex: http://localhost:8080/api/employees/add
+Note:Post request help us to post data from client to the server using request body in json/xml formats
+
+4.PUT - it is use to  update existing  record on the server using @PutMapping Annotation
+Note: Put request help us to update/modify  existing record on the server
+
+Ex: http://localhost:8080/api/employees/update
+Note:Post request help us to update data from client to the server using request body in json/xml formats
+
+
+
+class Address{
+
+
+}
+
+
+class Employee{
+
+int eid;
+String ename;
+Address addr;
+
+// setter and getters
+
+ // constructor
+
+}
+
+IOC:
+====
+Inversion of Control , 
+
+Hello sir am on Mute 
+
+
+Dependency Injections:
+----------------------
+
+1. setter method DI
+2. constructor DI
+
+1.Employee e = new Employee();
+
+e.setAddr(new Address());
+
+2.Employee e2 = new Employee(new Address());
+
+
+
+application.properties
+
+username = root
+password = admin
+
+
+
+
+
+
+
+Spring Old :
+============
+Need to install and add maven/gradle
+Need to install Tomcat web server externally.
+Need to do all configurations in xml (should know xml tech)
+Need external Database
+Not easy to create projects
+Structure was little complex.
+External files get generated not useful for us.
+
+--------------------------------------------------
+
+Spring New(Spring Boot):
+========================
+
+No Need to xml config file , it is replaced with properties or yaml fil.e
+No Need of external Tomcat server , it provides internal/embedded tomcat server
+No Need of external maven/gradle it provides internal options to create maven/gradle project
+Spring Starter option to create projects fast and easy way.
+Spring starter gives options to add dependencies directly from spring boot.
+No need of external DB also. (But not recommend)
+
+
+
+Introduction to  Annotations:
+============================
+Annotations:
+These are additional instructions given to the compiler and JVM.
+Name of annotation will be in InitCap format.
+Ex: @Test , @GetMapping , @Autowire , @Override
+
+
+Annotation used at:
+
+1.class level 
+2.method/constructor
+3. fields/params
+
+@Component
+class Employee{
+
+
+ @Autorwire
+ IEmployeeService service;
+
+
+@Override
+@Test
+@GetMapping
+public void m1(@PathVariable/@RequestBody String name){
+
+
+}
+
+
+}
+ 
+
+---------------------------------------------------
+Spring Basic Annotations:
+=========================
+
+Following annotations will be at class levels and create objects for given class.
+OR Create objects automatic for any class where these annotations are used.
+
+@Component -- Pojo classes
+@Service    --  Service classes
+@Respository ---  DAO/Repository classes
+@Bean   -- for any class like pojo , pre-defined classes
+
+@Controller  --- for controller classes (web using html)
+@RestController --- for RestController classes (web services + rest api)
+
+
+@Autowired: It will help us to perform auto-wiring / dependency injection for any given ref type.
+
+Example:
+---------
+@Component      // object will be created  like new Employee();
+class Employee {
+
+
+
+
+
+}
+
+@Repository
+class EmployeeRepo{
+
+
+
+}
+
+
+
+@Service  // obj will be created new ServiceDemo();
+class ServiceDemo{
+
+	@Autowired
+	Employee emp;   // obj will be injected like   emp = new Employee();
+
+	@Autowired
+	EmployeeRepo repo;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

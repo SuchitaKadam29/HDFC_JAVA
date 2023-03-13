@@ -1,0 +1,71 @@
+REST API:
+---------
+Browser/client sends a httpRequest using Http REST-API(URL)  to the resource(http methods) and get Http Response.
+
+Data can be exchange between client and server in HTML,TEXT,XML or JSON Format.
+
+JSON is most popular and used by all techs.
+
+Http Methods:
+
+1. GET - it is used to get/fetch data from server using @GetMapping Annotation
+Note:Get request help us to get single by id or get all data from server
+Ex: Get Employee By Id
+http://localhost:portno/api/employees/get/{eid}
+http://localhost:8080/api/employees/get/101     --> it return 101 emp record in json format
+
+Ex: Get All Employees
+http://localhost:8080/api/employees/get
+
+
+2. DELETE - it is use to delete/remove existing data from server using @DeleteMapping Annotation
+Note: Delete request help us to delete single record by Id or delete all records from server.
+http://localhost:portno/api/employees/delete/{id}
+http://localhost:8080/api/employees/delete/101     --> it delete 101 emp record from server
+
+3. POST - it is use to  post/insert/create a new record into the server using @PostMapping Annotation
+Note: Post request help us to insert/post a new record to the server
+
+Ex: http://localhost:8080/api/employees/add
+Note:Post request help us to post data from client to the server using request body in json/xml formats
+
+4.PUT - it is use to  update existing  record on the server using @PutMapping Annotation
+Note: Put request help us to update/modify  existing record on the server
+
+Ex: http://localhost:8080/api/employees/update
+Note:Post request help us to update data from client to the server using request body in json/xml formats
+
+
+
+
+
+
+Annotations for Restful Api Development
+----------------------------------------:
+
+@RestController  -- it is used for rest-controller classes deal with rest-api without html/webtech
+
+@RequestMapping  -- it is used for mapping the base url of application
+
+
+
+@GetMapping -- for  any kind of get request
+@DeleteMapping -- for deleting any record/records
+
+
+@PostMapping -- for adding or inserting new records
+@PutMapping --  for updating or modifying existing records
+
+
+@Patch - for updating single value/partial values
+
+
+@RequestBody -- to add data to the request body of any resource/request
+@PathVariable -- to pass input param to any parameter
+
+
+
+
+
+
+

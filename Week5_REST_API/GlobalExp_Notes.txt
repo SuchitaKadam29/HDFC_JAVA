@@ -1,0 +1,29 @@
+Global Exception Handling in SpringBoot:
+=======================================
+
+@ControllerAdvice
+@RestControllerAdvice
+
+@ExceptionHandler
+
+@ResponseStatus
+
+@Order
+
+
+step1: create a class with   @RestControllerAdvice annotation.
+step2: create a method with annotation @Exception Handler
+step3: Handle  any  Exception using above annotation  
+step4: return ResponseEntity or ResponseStatus or String etc.
+
+
+class ErrorRepsonse{
+
+int status;
+String message;
+
+	setStatus();
+	setMessage();
+
+
+}

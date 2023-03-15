@@ -18,6 +18,10 @@ public interface IProductService {
 				public  Product   getProductById(int id);
 				
 				public  void    deleteProductById(int id);
+				
+				public  List<Product>   getByPname(String pname);
+				
+				public  List<Product>   getByPrice(double price);
 	
 	
 	

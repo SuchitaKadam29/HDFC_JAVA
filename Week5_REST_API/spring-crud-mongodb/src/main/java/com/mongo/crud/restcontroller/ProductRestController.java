@@ -76,5 +76,31 @@ public class ProductRestController {
 	}
 	
 	
+	
+	
+		@GetMapping("/getbyname/{pname}")
+		public List<Product>  getByPname(@PathVariable  String pname){
+			
+			return  service.getByPname(pname);
+			
+		}
+		
+		@GetMapping("/getbyprice/{price}")
+		public List<Product>  getByPrice(@PathVariable  double price){
+			
+			return  service.getByPrice(price);
+		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

@@ -1,6 +1,8 @@
 package com.hdfc.crud.entity;
 
-public class Employee {
+import org.springframework.hateoas.RepresentationModel;
+
+public class Employee extends RepresentationModel {
 	
 	
 		private int eid;

@@ -1,0 +1,43 @@
+
+What is MongoRepository<T, ID> ?
+MongoRepository<T, ID> is an important interface which will help you to write CRUD operations easily. For example, in our case we will extend our custom Repository interface from this interface. However, It is just like JpaRepositry<T, ID> that we use to write CRUD operations in case of SQL databases. Both of them extends PagingAndSortingRepository<T, ID> and QueryByExampleExecutor<T> interfaces. We can go through the primary diagram of this article in order to understand complete hierarchy of MongoRepository<T, ID> & JpaRepositry<T, ID> as well.
+
+methods in MongoRepository<T,ID>
+
+1.save()  // insert and update
+2.saveAll()
+3.findOne()
+4.findById()  // get by id
+5.deleteById()  // delete by id
+6.findAll()
+7.deleteAll()
+
+
+
+
+
+application.properties
+------------------------
+
+spring.data.mongodb.host=localhost
+spring.data.mongodb.port=27017
+spring.data.mongodb.database= database_name
+
+Note: Make sure mongodb server is ready and database,collection is created.
+
+step1. create entity class
+step2. create  repository interface extends MongoRepository<Entity,IdDataType>
+step3. keep backend database ready
+step4. create service interface and service implementation class where repository will be @Autowired              and call all predefined  methods from Repository interfaces.
+
+  Repository --> CrudRepository ---> PagingAndSortingRepository --> MongoRepository
+
+Note: Use MongoRepository to get all the methods from top level interfaces/parents
+
+step5. create restcontroller and call all the services
+
+stept6. execute application using postman or any UI-Tool
+
+
+
+

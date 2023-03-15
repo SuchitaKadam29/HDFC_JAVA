@@ -12,6 +12,18 @@ public class Product {
 	private double price;
 	
 	
+	public Product() {
+		super();
+	}
+	
+	
+	public Product(int id, String pname, double price) {
+		super();
+		this.id = id;
+		this.pname = pname;
+		this.price = price;
+	}
+	
 	public int getId() {
 		return id;
 	}

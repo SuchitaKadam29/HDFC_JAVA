@@ -22,6 +22,8 @@ public interface IProductService {
 				public  List<Product>   getByPname(String pname);
 				
 				public  List<Product>   getByPrice(double price);
+				
+				public  List<Product>   getByPriceGT(double price);
 	
 	
 	

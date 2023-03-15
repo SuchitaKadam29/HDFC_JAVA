@@ -29,6 +29,8 @@ public class ProductRestController {
 	@PostMapping("/add")
 	public   Product  insertProduct(@RequestBody Product product) {
 		
+			System.out.println("RestController add resource");
+		
 			return	service.addProduct(product);
 		
 		
@@ -91,6 +93,11 @@ public class ProductRestController {
 			return  service.getByPrice(price);
 		}
 	
+		@GetMapping("/getby-gt/{price}")
+		public List<Product>  getByPriceGT(@PathVariable  double price){
+			
+			return  service.getByPriceGT(price);
+		}
 	
 	
 	

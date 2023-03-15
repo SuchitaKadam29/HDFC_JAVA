@@ -67,4 +67,11 @@ public class ProductServiceImp implements IProductService {
 		return repo.findByPrice(price);
 	}
 
+
+	@Override
+	public List<Product> getByPriceGT(double price) {
+		// TODO Auto-generated method stub
+		return repo.findByPriceGreaterThan(price);
+	}
+
 }

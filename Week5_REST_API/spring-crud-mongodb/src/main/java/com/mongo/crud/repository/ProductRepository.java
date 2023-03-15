@@ -11,8 +11,11 @@ import com.mongo.crud.entity.Product;
 public interface ProductRepository extends MongoRepository<Product, Integer>{
 	
 	
-		public  List<Product>   findByPname(String pname);
+		public  List<Product>   findByPname(String pname); // select * from products where pnameCol = ?;
 		
 		public  List<Product>   findByPrice(double price);
+		
+        public List<Product> findByPriceGreaterThan(double price);
+                                                     //select * from products where  priceCol > ?;
 
 }

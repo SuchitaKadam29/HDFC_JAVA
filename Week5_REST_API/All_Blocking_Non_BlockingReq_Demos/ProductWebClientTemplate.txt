@@ -1,0 +1,16 @@
+class ProductWebclientRestController{
+
+	@PostMapping("/add-product")
+	public  Mono<Product> add(@RequestBody Product product){
+
+
+Mono<Product> mono = webClient.post().uri("/add").body(Mono.just(product),Employee.class).
+				retrieve().bodyToMono(Product.class);
+
+	return mono;
+
+	}
+
+
+
+}

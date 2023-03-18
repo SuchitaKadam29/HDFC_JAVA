@@ -1,0 +1,111 @@
+Spring Boot + Rest API + MongoDB
+=================================:
+
+
+E-Library APP:
+------------
+Entity class
+
+@Document(collection="Books")
+class Book{
+
+@Id
+private int id;
+private String title;
+private double price;
+private String author;
+private  LocalDate publishDate;
+
+
+}
+------------------------------------
+interface  BookRepository  extends  MongoRepository<Book,Integer>{
+
+
+
+}
+
+
+----------------------------------------
+
+
+
+
+
+interface IBookService{
+
+//addBook
+//updateBook
+//deleteBookById(id) throws BookNotFoundException
+
+
+
+// getAllBooks()
+// getBookByTitle(String title)throws BookNotFoundException
+
+
+
+
+
+}
+
+class BookServiceImp  implements IBookService{
+
+// implement all methods here
+
+
+}
+
+-------------------------------------------
+
+
+
+BookRestController{
+//addBook
+//updateBook
+//deleteBookById(id) throws BookNotFoundException
+
+
+
+// getAllBooks()
+// getBookByTitle(String title)throws BookNotFoundException
+
+
+}
+
+
+---------------------
+
+class  BookNotFoundException extends Exception{
+
+
+
+}
+
+-----------------------------------------
+
+GlobalException Handler
+
+@RestControllerAdvice
+class   BookExceptionHandlerController {
+
+
+	// @ExceptionHandler(BookNotFoundException.class) 
+
+	// method(BookNotFoundException e){
+
+		return new ResponseEntity<String>("Book Not Found "+e.message() , HttpStatus.Code)
+
+		}
+
+
+}
+
+
+
+
+
+
+
+
+

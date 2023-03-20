@@ -102,6 +102,47 @@ class   BookExceptionHandlerController {
 }
 
 
+==============================
+
+Another spring boot project.
+
+server.port = 9090
+
+Spring Reactive Web  , LOmbok
+
+entity package
+
+
+controller package
+
+@RestController
+class BookWebClient {
+
+	WebClient webClient = WebClient.create(baseurl);
+
+public  Mono<List<Book>> getAll(){
+		
+		webClient.get().uri("/getall")
+
+
+
+	}
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

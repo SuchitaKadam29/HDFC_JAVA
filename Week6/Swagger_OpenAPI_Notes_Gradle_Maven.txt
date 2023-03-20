@@ -1,0 +1,101 @@
+Swagger UI Tool:
+================
+Now , Open API Tools
+
+The OpenAPI Specification was donated to the Linux Foundation under the OpenAPI Initiative in 2015. The specification creates a RESTful interface for easily developing and consuming an API by effectively mapping all the resources and operations associated with it.
+
+What Is OpenAPI?
+OpenAPI Specification (formerly Swagger Specification) is an API description format for REST APIs. An OpenAPI file allows you to describe your entire API, including:
+
+Available endpoints (/users) and operations on each endpoint (GET /users, POST /users)
+Operation parameters Input and output for each operation
+Authentication methods
+Contact information, license, terms of use and other information.
+API specifications can be written in YAML or JSON. The format is easy to learn and readable to both humans and machines. The complete OpenAPI Specification can be found on GitHub: OpenAPI 3.0 Specification
+
+What Is Swagger?
+Swagger is a set of open-source tools built around the OpenAPI Specification that can help you design, build, document and consume REST APIs. The major Swagger tools include:
+
+Swagger Editor – browser-based editor where you can write OpenAPI definitions.
+Swagger UI – renders OpenAPI definitions as interactive documentation.
+Swagger Codegen – generates server stubs and client libraries from an OpenAPI definition.
+Swagger Editor Next (beta) – browser-based editor where you can write and review OpenAPI and AsyncAPI definitions.
+Swagger Core – Java-related libraries for creating, consuming, and working with OpenAPI definitions.
+Swagger Parser – standalone library for parsing OpenAPI definitions
+Swagger APIDom – provides a single, unifying structure for describing APIs across various description languages and serialization formats.
+Why Use OpenAPI?
+The ability of APIs to describe their own structure is the root of all awesomeness in OpenAPI. Once written, an OpenAPI specification and Swagger tools can drive your API development further in various ways:
+
+Design-first users: use Swagger Codegen to generate a server stub for your API. The only thing left is to implement the server logic – and your API is ready to go live!
+Use Swagger Codegen to generate client libraries for your API in over 40 languages.
+Use Swagger UI to generate interactive API documentation that lets your users try out the API calls directly in the browser.
+Use the spec to connect API-related tools to your API. For example, import the spec to SoapUI to create automated tests for your API.
+And more! Check out the open-source and commercial tools that integrate with Swagger.
+
+
+
+
+Setup:
+======
+1. Add dependencies in your REST API Project as follows
+
+Gradle project:
+---------------
+dependencies {
+
+	
+	// existing depencencies below
+	
+	
+	// https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui
+implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.5.8'
+	
+	// https://mvnrepository.com/artifact/org.webjars/webjars-locator
+implementation group: 'org.webjars', name: 'webjars-locator', version: '0.46'
+
+// https://mvnrepository.com/artifact/io.github.classgraph/classgraph
+implementation group: 'io.github.classgraph', name: 'classgraph', version: '4.8.157'
+
+	
+	
+}
+
+
+Maven Project:
+--------------
+
+<!-- Swagger UI -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>1.2.32</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.webjars/webjars-locator -->
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>webjars-locator</artifactId>
+			<version>0.46</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.github.classgraph/classgraph -->
+		<dependency>
+			<groupId>io.github.classgraph</groupId>
+			<artifactId>classgraph</artifactId>
+			<version>4.8.151</version>
+		</dependency>
+
+
+Note: NO Need to add any annotations for OpenAPI / Swagger-UI V3.
+
+url to access swagger
+
+http://localhost:portno/swagger-ui.html
+
+
+
+
+
+
+
+
+
+

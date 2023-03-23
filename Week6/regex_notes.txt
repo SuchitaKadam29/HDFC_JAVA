@@ -1,0 +1,22 @@
+
+Regex in Java:
+------------
+
+[0-9]  // any one digit between zero to 9
+
+[0-9][0-9] // any 2 digits between 0-9 ,0-9
+
+[0-9] {3}  //  any 3 digits number
+
+[a-z]  // any small letter between a to z
+
+[A-Z]  // any capital letter between A to Z
+
+[A-Z][a-z]{3}  // begin with Capital letter followed by 3 small letters
+ex: Java , Raju 
+
+[A-Za-z] {3}  // any 3 letter between A-Z or a-z 
+ex: App , anu , AKA , Bil , tOP
+
+[A-Za-z0-9]{3,9} [@] [a-zA-Z]{4} [.][a-z]{3} 
+ex:  javeed@Gmail.com
